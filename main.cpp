@@ -3,9 +3,12 @@
 #include <QApplication>
 #include <QLocale>
 #include <QTranslator>
+#include "message.h"
 
 int main(int argc, char *argv[])
 {
+    Message test("ENSICAEN_RULES");
+    test.showBinary();
     QApplication a(argc, argv);
 
     QTranslator translator;
