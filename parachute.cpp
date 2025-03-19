@@ -12,3 +12,15 @@ parachute::parachute(char * message,int nbPistes,int nbSectors){
     _nbPistes = nbPistes;
     _nbSectors = nbSectors;
 }
+
+void parachute::setSectors(int nbSectors){
+    _nbSectors=nbSectors;
+}
+
+void parachute::setPistes(int nbPistes){
+    _nbPistes=nbPistes;
+}
+
+int parachute::getSectors(){
+    return _nbSectors;
+}

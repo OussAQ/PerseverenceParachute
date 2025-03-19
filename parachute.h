@@ -8,6 +8,9 @@ class parachute
 public:
     parachute();
     parachute(char *,int,int);
+    void setSectors(int);
+    void setPistes(int);
+    int getSectors();
 private:
     int _nbPistes;
     int _nbSectors;
