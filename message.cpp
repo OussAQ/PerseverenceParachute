@@ -7,7 +7,7 @@ Message::Message()
     _message=new char[1];
     _message[0]='\0';
     _size=0;
-
+    _zero='@';
 }
 
 Message::Message(char * message){
@@ -21,7 +21,7 @@ void Message::toBinary(){
     char cur;
     for (int i=0;i<_size;i++){
         _binary[i]=new int[8];
-        cur=(_message[i]-'@')%256;
+        cur=(_message[i]-_zero)%256;
         for(int j=0;j<8;j++){
             _binary[i][7-j] = cur%2;
             cur=cur/2;
@@ -32,12 +32,18 @@ void Message::toBinary(){
 char Message::getK(int index){
     if (index>0 && index<_size){
         return _message[index];
+    } else {
+        std::cerr<<"Index out of range"<<std::endl;
+        return '\0';
     }
 }
 
 int * Message::getKBin(int index){
     if (index>0 && index<_size){
         return _binary[index];
+    } else {
+        std::cerr<<"Index out of range"<<std::endl;
+        return nullptr;
     }
 }
 
@@ -48,4 +54,10 @@ void Message::showBinary(){
         }
         std::cout<<std::endl;
     }
+}
+
+void Message::setNewZero(char zero){
+    _zero = zero;
+    delete _binary;
+    toBinary();
 }

@@ -10,10 +10,12 @@ public:
     char getK(int index);
     int * getKBin(int index);
     void showBinary();
+    void setNewZero(char);
 private:
     char * _message;
     int _size;
     int ** _binary;
+    char _zero;
     void toBinary();
 };
 
