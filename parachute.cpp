@@ -1,26 +1,31 @@
 #include "parachute.h"
 
-parachute::parachute()
-{
-    _message=new Message();
-    _nbPistes=0;
-    _nbSectors=0;
+Parachute::Parachute() {}
+
+void Parachute::setSettings(const ParachuteSettings& s) {
+    settings = s;
 }
 
-parachute::parachute(char * message,int nbPistes,int nbSectors){
-    _message =  new Message(message);
-    _nbPistes = nbPistes;
-    _nbSectors = nbSectors;
+const ParachuteSettings& Parachute::getSettings() const {
+    return settings;
 }
 
-void parachute::setSectors(int nbSectors){
-    _nbSectors=nbSectors;
+void Parachute::setMessage(const QString& msg) {
+    message = msg;
+    bits = convertToBits(msg);
 }
 
-void parachute::setPistes(int nbPistes){
-    _nbPistes=nbPistes;
+QVector<bool> Parachute::getBits() const {
+    return bits;
 }
 
-int parachute::getSectors(){
-    return _nbSectors;
+QVector<bool> Parachute::convertToBits(const QString& text) const {
+    QVector<bool> result;
+    for (QChar c : text) {
+        int value = c.unicode() - settings.referenceChar.unicode();
+        for (int i = 6; i >= 0; i--) {
+            result.push_back((value >> i) & 1);
+        }
+    }
+    return result;
 }

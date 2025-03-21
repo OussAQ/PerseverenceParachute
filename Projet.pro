@@ -12,12 +12,16 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     message.cpp \
-    parachute.cpp
+    parachute.cpp \
+    parachutewidget.cpp \
+    trapezoid.cpp
 
 HEADERS += \
     mainwindow.h \
     message.h \
-    parachute.h
+    parachute.h \
+    parachutewidget.h \
+    trapezoid.h
 
 FORMS += \
     mainwindow.ui
