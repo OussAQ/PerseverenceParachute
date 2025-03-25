@@ -1,8 +1,8 @@
-QT       += core gui
+QT       += core gui widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -14,22 +14,19 @@ SOURCES += \
     message.cpp \
     parachute.cpp \
     parachutewidget.cpp \
-    trapezoid.cpp
+    trapezoid.cpp \
+    binaryview.cpp
 
 HEADERS += \
     mainwindow.h \
     message.h \
     parachute.h \
     parachutewidget.h \
-    trapezoid.h
+    trapezoid.h \
+    binaryview.h
 
 FORMS += \
     mainwindow.ui
-
-TRANSLATIONS += \
-    Projet_fr_FR.ts
-CONFIG += lrelease
-CONFIG += embed_translations
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
