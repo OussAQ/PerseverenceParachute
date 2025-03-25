@@ -3,10 +3,9 @@
 #include <QDebug>
 
 BinaryView::BinaryView(QWidget *parent) : QWidget(parent) {
-    // Couleurs par défaut
     color0 = Qt::white;
     color1 = Qt::red;
-    setMinimumSize(400, 100);  // Hauteur réduite pour un aspect plus horizontal
+    setMinimumSize(200, 100);
 }
 
 void BinaryView::setMessage(const QString &text, char refChar) {
@@ -22,21 +21,19 @@ void BinaryView::setColors(const QColor &c0, const QColor &c1) {
 }
 
 QSize BinaryView::sizeHint() const {
-    return QSize(600, 100);  // Taille préférée plus horizontale
+    return QSize(200, 50);
 }
 
 QSize BinaryView::minimumSizeHint() const {
-    return QSize(400, 80);  // Taille minimum pour assurer la lisibilité
+    return QSize(50, 10);
 }
 
 void BinaryView::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
     
-    // Fond blanc
     painter.fillRect(rect(), Qt::white);
     
-    // Dessiner le cadre
     painter.setPen(QPen(Qt::black, 1));
     painter.drawRect(rect().adjusted(0, 0, -1, -1));
     
@@ -49,14 +46,11 @@ void BinaryView::drawGrid(QPainter &painter) {
     int totalBits = message.length() * 7;
     if (totalBits == 0) return;
     
-    // Calculer le nombre de lignes nécessaires
-    int rows = (totalBits + DOTS_PER_ROW - 1) / DOTS_PER_ROW;
-    if (rows <= 0) rows = 1;
+    int cols = (totalBits + DOTS_PER_COLUMN - 1) / DOTS_PER_COLUMN;
+    if (cols <= 0) cols = 1;
     
-    // Espacement fixe entre les points
     int dotSpacing = DOT_SPACING;
     
-    // Dessiner les points
     int currentBit = 0;
     for (int i = 0; i < message.length() && currentBit < totalBits; ++i) {
         Message msg(QString(message[i]).toStdString().c_str());
@@ -64,10 +58,10 @@ void BinaryView::drawGrid(QPainter &painter) {
         std::vector<bool> bits = msg.getBitsForChar(0);
         
         for (size_t j = 0; j < bits.size() && currentBit < totalBits; ++j) {
-            int row = currentBit / DOTS_PER_ROW;
-            int col = currentBit % DOTS_PER_ROW;
+            int col = (currentBit / DOTS_PER_COLUMN) % DOTS_PER_ROW;
+            int row = currentBit % DOTS_PER_COLUMN + 9*((int) currentBit/(7*DOTS_PER_ROW));
             
-            if (row >= rows) break;
+            if (col >= cols) break;
             
             int x = MARGIN + col * (DOT_SIZE + dotSpacing);
             int y = MARGIN + row * (DOT_SIZE + dotSpacing);
