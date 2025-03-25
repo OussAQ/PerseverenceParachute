@@ -23,12 +23,13 @@ private:
     char referenceChar;
     QColor color0;
     QColor color1;
-    static const int DOT_SIZE = 8;       // Taille réduite des points
-    static const int DOT_SPACING = 2;    // Espacement réduit entre les points
-    static const int MARGIN = 10;        // Marge autour de la grille
-    static const int DOTS_PER_ROW = 50;  // Nombre de points par ligne
+    static const int DOTS_PER_ROW=35;
+    static const int DOT_SIZE = 8;
+    static const int DOT_SPACING = 2;
+    static const int MARGIN = 10;
+    static const int DOTS_PER_COLUMN = 7;
 
     void drawGrid(QPainter &painter);
 };
 
-#endif // BINARYVIEW_H
+#endif
