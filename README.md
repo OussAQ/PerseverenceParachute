@@ -6,12 +6,18 @@ A brief description of what your project does and why it exists.
 ## 📸 Demo & Screenshots
 
 ### Main Interface
-![App Screenshot](images/screenshot_main.png)
+![App Screenshot](images/basicWidget.png)
 
 ### Additional Views
-![Another View](images/screenshot_view2.png)
 
-(Add your images inside an `/images` folder for clean structure.)
+#### Using a simple message
+![Another View](images/withsimplemessage.png)
+
+#### Customizing the colors 
+![Another View](images/colorscroll.png)
+
+#### Adding more details to the wheel / Randomizing colors 
+![Another View](images/moreoptions.png)
 
 ---
 
@@ -32,13 +38,26 @@ Key focuses include:
 
 ## ✨ Features
 
-- 🎛 **Interactive GUI** built with Qt  
-- 🪂 **Parachute deployment simulation**  
-- 📊 **Live visualization** of forces & trajectory  
-- 📁 Clean project structure with modular C++ classes  
-- ✔️ Cross-platform support (Linux, Windows, macOS)
+-  **Interactive GUI** built with Qt  
+-  **Parachute deployment simulation**  
+-  **Live visualization** of forces & trajectory  
+-  Clean project structure with modular C++ classes  
+-  Cross-platform support (Linux, Windows, macOS)
 
----
+### Run from Terminal
+Here’s the usage section you can drop directly into your README:
 
-## 🗂 Project Structure
+## Usage
 
+### Run using Qt Creator (recommended)
+1. Open the file `Projet.pro` in **Qt Creator**
+2. Select your build kit (GCC/Clang/MSVC)
+3. Click **Build**
+4. Click **Run**
+
+### Run from Terminal
+
+```bash
+qmake Projet.pro
+make
+./Projet
