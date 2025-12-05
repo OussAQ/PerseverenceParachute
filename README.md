@@ -1,6 +1,5 @@
-# 🚀 Project Title – Short Tagline
-A brief description of what your project does and why it exists.
-
+# 🚀 Perseverence's Parachute Secret Message Encoder
+Inspired by the binary coding of NASA's Perseverance rover parachute, I developed a Qt-based C++ application that functions as a secret message encoder. The application transforms text inputs into innovative geometric patterns, offering unique circular and binary visualizations of the encoded data.
 ---
 
 ## 📸 Demo & Screenshots
@@ -8,15 +7,13 @@ A brief description of what your project does and why it exists.
 ### Main Interface
 ![App Screenshot](images/basicWidget.png)
 
-### Additional Views
-
-#### Using a simple message
+### Using a simple message
 ![Another View](images/withsimplemessage.png)
 
-#### Customizing the colors 
+### Customizing the colors 
 ![Another View](images/colorscroll.png)
 
-#### Adding more details to the wheel / Randomizing colors 
+### Adding more details to the wheel / Randomizing colors 
 ![Another View](images/moreoptions.png)
 
 ---
